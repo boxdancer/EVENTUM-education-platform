@@ -1,0 +1,25 @@
+services:
+  db:
+    container_name: 'db'
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5431:5432'
+    networks:
+      - custom
+networks:
+  custom:
+    driver: bridge
+
+# docker-compose up -d
+# up — запускает контейнеры, указанные в файле конфигурации, и, если их нет, создает и запускает их.
+# -d (detached mode) — запускает контейнеры в фоновом режиме, не блокируя текущий терминал.
+
+
+# Чтобы подключиться к БД в контейнере докера через терминал винды:
+#docker exec -it <container_name_or_id> bash   #подключиться к работающему контейнеру PostgreSQL
+#psql -U <username> -d <database_name>      # подключение к PostgreSQL
