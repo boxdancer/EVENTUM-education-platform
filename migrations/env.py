@@ -7,6 +7,8 @@ from alembic import context
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
+
+
 config = context.config
 
 # Interpret the config file for Python logging.
@@ -18,7 +20,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 
 # Надо импортировать базовый класс для всех наших моделей (таблиц)
-from main import Base
+from db.models import Base
 target_metadata = Base.metadata
 # target_metadata = None
 
